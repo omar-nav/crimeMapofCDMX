@@ -15,7 +15,13 @@ function choroplethizHomicidios2015(d) {
         d > 14 ? '#fdcc8a' :
             '#fef0d9';
 }
-
+function choroplethizHomicidios2016(d) {
+    return d > 238 ? '#b30000' :
+        d > 95 ? '#e34a33' :
+        d > 66 ? '#fc8d59' :
+        d > 22 ? '#fdcc8a' :
+            '#fef0d9';
+}
 // PINTAR LAS FIGURAS CON LOS COLORES
 function styleHomicidios2015(feature) {
     return {
@@ -27,6 +33,16 @@ function styleHomicidios2015(feature) {
         fillColor: choroplethizHomicidios2015(feature.properties.homicidios2015_Grand_Total)
     }
 }
+function styleHomicidios2016(feature) {
+    return {
+        weight: .75,
+        opacity: 0.5,
+        color: 'grey',
+        dashArray: '0',
+        fillOpacity: 0.9,
+        fillColor: choroplethizHomicidios2016(feature.properties.homicidios2016_Grand_Total)
+    }
+}
 
 // CREAR VARIABLES PARA LAS CAPAS
 var Homicidios2015Layer = L.geoJSON([homicidios2015], {
@@ -36,17 +52,29 @@ var Homicidios2015Layer = L.geoJSON([homicidios2015], {
         return L.marker(latlng);
     }
 });
-
+var Homicidios2016Layer = L.geoJSON([homicidios2016], {
+    style: styleHomicidios2016,
+    onEachFeature: geojsonPopupHomicidios2016,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
 // CREAR CAJAS AL MOMENTO DE HACER CLIC
 function geojsonPopupHomicidios2015(feature, layer) {
-    if (feature.properties.NOMGEO != null) {
+    if (feature.properties.NOMLOC != null) {
         layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2015:   ' + feature.properties.homicidios2015_Grand_Total);
+    }
+}
+function geojsonPopupHomicidios2016(feature, layer) {
+    if (feature.properties.NOMLOC != null) {
+        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2016:   ' + feature.properties.homicidios2016_Grand_Total);
     }
 }
 
 Homicidios2015Layer.addTo(mymap);
 var featureLayers = {
     "Homicidios 2015": Homicidios2015Layer,
+    "Homicidios 2016": Homicidios2016Layer,
 };
 var geojson = L.control.layers(featureLayers, null, {
     collapsed: false
@@ -54,8 +82,7 @@ var geojson = L.control.layers(featureLayers, null, {
 
 // LEGEND STARTS HERE
 var Homicidios2015Legend = L.control({ position: 'bottomright' });
-
-
+var Homicidios2016Legend = L.control({ position: 'bottomright' });
 
 Homicidios2015Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
@@ -72,20 +99,35 @@ Homicidios2015Legend.onAdd = function (mymap) {
     div.innerHTML = labels.join('<br>');
     return div;
 };
+Homicidios2016Legend.onAdd = function (mymap) {
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = [0, 22, 66, 95, 238],
+        labels = ['Homicidios por municipio'],
+        from, to;
+    for (var i = 0; i < grades.length; i++) {
+        from = grades[i];
+        to = grades[i + 1];
+        labels.push(
+            '<i style="background:' + choroplethizHomicidios2016(from + 1) + '"></i> ' +
+            from + (to ? ' a ' + to : ' o más'));
+    }
+    div.innerHTML = labels.join('<br>');
+    return div;
+};
 
 Homicidios2015Legend.addTo(mymap);
 let currentLegend = Homicidios2015Legend;
 
+// LEGEND Box
 mymap.on('baselayerchange', function (eventLayer) {
     if (eventLayer.name === 'Homicidios 2015') {
         mymap.removeControl(currentLegend);
         currentLegend = Homicidios2015Legend;
         Homicidios2015Legend.addTo(mymap);
     }
-    // else if (eventLayer.name === 'Homicidios 2015') {
-    //     mymap.removeControl(currentLegend);
-    //     currentLegend = Homicidios2015Legend;
-    //     Homicidios2015Legend.addTo(mymap);
-    // }
+    else if (eventLayer.name === 'Homicidios 2016') {
+        mymap.removeControl(currentLegend);
+        currentLegend = Homicidios2016Legend;
+        Homicidios2016Legend.addTo(mymap);
+    }
 });
-// LEGEND ENDS HERE
