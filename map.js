@@ -87,8 +87,8 @@ var Homicidios2017Layer = L.geoJSON([homicidios2017], {
 
 // CREAR CAJAS AL MOMENTO DE HACER CLIC
 function geojsonPopupHomicidios2015(feature, layer) {
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent);
+    if (feature.properties) {
+        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2015:   ' + feature.properties.homicidios2015_Grand_Total)
     }
 }
 function geojsonPopupHomicidios2016(feature, layer) {
