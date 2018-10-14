@@ -11,44 +11,44 @@ L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 function choroplethizeHomicidios2015(d) {
     return d > 245 ? '#b30000' :
         d > 108 ? '#e34a33' :
-        d > 58 ? '#fc8d59' :
-        d > 14 ? '#fdcc8a' :
-            '#fef0d9';
+            d > 58 ? '#fc8d59' :
+                d > 14 ? '#fdcc8a' :
+                    '#fef0d9';
 }
 function choroplethizeHomicidios2016(d) {
     return d > 238 ? '#b30000' :
         d > 95 ? '#e34a33' :
-        d > 66 ? '#fc8d59' :
-        d > 22 ? '#fdcc8a' :
-            '#fef0d9';
+            d > 66 ? '#fc8d59' :
+                d > 22 ? '#fdcc8a' :
+                    '#fef0d9';
 }
 function choroplethizeHomicidios2017(d) {
     return d > 192 ? '#b30000' :
         d > 123 ? '#e34a33' :
-        d > 72 ? '#fc8d59' :
-        d > 31 ? '#fdcc8a' :
-            '#fef0d9';
+            d > 72 ? '#fc8d59' :
+                d > 31 ? '#fdcc8a' :
+                    '#fef0d9';
 }
 function choroplethizeRobos2015(d) {
     return d > 8783 ? '#7a0177' :
         d > 4726 ? '#c51b8a' :
-        d > 3001 ? '#f768a1' :
-        d > 1435 ? '#fbb4b9' :
-            '#feebe2';
+            d > 3001 ? '#f768a1' :
+                d > 1435 ? '#fbb4b9' :
+                    '#feebe2';
 }
 function choroplethizeRobos2016(d) {
     return d > 8303 ? '#7a0177' :
         d > 6032 ? '#c51b8a' :
-        d > 3305 ? '#f768a1' :
-        d > 1423 ? '#fbb4b9' :
-            '#feebe2';
+            d > 3305 ? '#f768a1' :
+                d > 1423 ? '#fbb4b9' :
+                    '#feebe2';
 }
 function choroplethizeRobos2017(d) {
     return d > 10447 ? '#7a0177' :
         d > 8097 ? '#c51b8a' :
-        d > 2726 ? '#f768a1' :
-        d > 1026 ? '#fbb4b9' :
-            '#feebe2';
+            d > 2726 ? '#f768a1' :
+                d > 1026 ? '#fbb4b9' :
+                    '#feebe2';
 }
 
 // PINTAR LAS FIGURAS CON LOS COLORES
