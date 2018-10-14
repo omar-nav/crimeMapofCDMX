@@ -112,58 +112,15 @@ function styleRobos2017(feature) {
         fillColor: choroplethizeRobos2017(feature.properties.robbery2017_Total)
     }
 }
-// CREAR VARIABLES PARA LAS CAPAS
-var Homicidios2015Layer = L.geoJSON(homicidios2015, {
-    style: styleHomicidios2015,
-    onEachFeature: geojsonPopupHomicidios2015,
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng);
-    }
-});
-var Homicidios2016Layer = L.geoJSON(homicidios2016, {
-    style: styleHomicidios2016,
-    onEachFeature: geojsonPopupHomicidios2016,
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng);
-    }
-});
-var Homicidios2017Layer = L.geoJSON(homicidios2017, {
-    style: styleHomicidios2017,
-    onEachFeature: geojsonPopupHomicidios2017,
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng);
-    }
-});
-var Robos2015Layer = L.geoJSON(robos2015, {
-    style: styleRobos2015,
-    onEachFeature: geojsonPopupRobos2015,
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng);
-    }
-});
-var Robos2016Layer = L.geoJSON(robos2016, {
-    style: styleRobos2016,
-    onEachFeature: geojsonPopupRobos2016,
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng);
-    }
-});
-var Robos2017Layer = L.geoJSON(robos2017, {
-    style: styleRobos2017,
-    onEachFeature: geojsonPopupRobos2017,
-    pointToLayer: function (feature, latlng) {
-        return L.marker(latlng);
-    }
-});
-
 // CREAR CAJAS AL MOMENTO DE HACER CLIC
 function geojsonPopupHomicidios2015(feature, layer) {
     if (feature.properties.NOMLOC) {
-        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2015:   ' + feature.properties.homicidios2015_Grand_Total)
+        return layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2015:   ' + feature.properties.homicidios2015_Grand_Total)
     }
 }
 function geojsonPopupHomicidios2016(feature, layer) {
     if (feature.properties.NOMLOC) {
+        console.log('hello from homicidse2016')
         layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2016:   ' + feature.properties.homicidios2016_Grand_Total)
     }
 }
@@ -187,6 +144,51 @@ function geojsonPopupRobos2017(feature, layer) {
         layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2017:   ' + feature.properties.robbery2017_Total)
     }
 }
+
+// CREAR VARIABLES PARA LAS CAPAS
+var Homicidios2015Layer = L.geoJSON(homicidios2015, {
+    style: styleHomicidios2015,
+    onEachFeature: geojsonPopupHomicidios2015,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
+var Homicidios2016Layer = L.geoJSON(homicidios2016, {
+    style: styleHomicidios2016,
+    forEachFeature: geojsonPopupHomicidios2016,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
+var Homicidios2017Layer = L.geoJSON(homicidios2017, {
+    style: styleHomicidios2017,
+    forEachFeature: geojsonPopupHomicidios2017,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
+var Robos2015Layer = L.geoJSON(robos2015, {
+    style: styleRobos2015,
+    forEachFeature: geojsonPopupRobos2015,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
+var Robos2016Layer = L.geoJSON(robos2016, {
+    style: styleRobos2016,
+    forEachFeature: geojsonPopupRobos2016,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
+var Robos2017Layer = L.geoJSON(robos2017, {
+    style: styleRobos2017,
+    forEachFeature: geojsonPopupRobos2017,
+    pointToLayer: function (feature, latlng) {
+        return L.marker(latlng);
+    }
+});
+
 // dibujar al mapa
 Homicidios2015Layer.addTo(mymap);
 var featureLayers = {
