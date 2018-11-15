@@ -464,26 +464,3 @@
     -webkit-border-radius: 2px;
     border-radius: 2px;
 }
-
-/* legend */
-.legend {
-    line-height: 18px;
-    color: #333333;
-    padding: 6px 8px;
-    background: white;
-    background: rgba(255,255,255,0.8);
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    border-radius: 5px;
-}
-.legend i {
-    width: 18px;
-    height: 18px;
-    float: left;
-    margin-right: 18px;
-    opacity: 0.7;
-}
-.legend p {
-    font-size: 12px;
-    line-height: 18px;
-    margin: 0;
-}
