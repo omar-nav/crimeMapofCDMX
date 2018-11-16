@@ -154,35 +154,35 @@ var Homicidios2015Layer = L.geoJSON(homicidios2015, {
 });
 var Homicidios2016Layer = L.geoJSON(homicidios2016, {
     style: styleHomicidios2016,
-    forEachFeature: geojsonPopupHomicidios2016,
+    onEachFeature: geojsonPopupHomicidios2016,
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng);
     }
 });
 var Homicidios2017Layer = L.geoJSON(homicidios2017, {
     style: styleHomicidios2017,
-    forEachFeature: geojsonPopupHomicidios2017,
+    onEachFeature: geojsonPopupHomicidios2017,
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng);
     }
 });
 var Robos2015Layer = L.geoJSON(robos2015, {
     style: styleRobos2015,
-    forEachFeature: geojsonPopupRobos2015,
+    onEachFeature: geojsonPopupRobos2015,
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng);
     }
 });
 var Robos2016Layer = L.geoJSON(robos2016, {
     style: styleRobos2016,
-    forEachFeature: geojsonPopupRobos2016,
+    onEachFeature: geojsonPopupRobos2016,
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng);
     }
 });
 var Robos2017Layer = L.geoJSON(robos2017, {
     style: styleRobos2017,
-    forEachFeature: geojsonPopupRobos2017,
+    onEachFeature: geojsonPopupRobos2017,
     pointToLayer: function (feature, latlng) {
         return L.marker(latlng);
     }
