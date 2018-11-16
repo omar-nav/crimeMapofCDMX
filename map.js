@@ -120,28 +120,27 @@ function geojsonPopupHomicidios2015(feature, layer) {
 }
 function geojsonPopupHomicidios2016(feature, layer) {
     if (feature.properties.NOMLOC) {
-        console.log('hello from homicidse2016')
-        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2016:   ' + feature.properties.homicidios2016_Grand_Total)
+        return layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2016:   ' + feature.properties.homicidios2016_Grand_Total)
     }
 }
 function geojsonPopupHomicidios2017(feature, layer) {
     if (feature.properties.NOMLOC) {
-        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2017:   ' + feature.properties.homicidios2017_Grand_Total)
+        return layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Homicidios en 2017:   ' + feature.properties.homicidios2017_Grand_Total)
     }
 }
 function geojsonPopupRobos2015(feature, layer) {
     if (feature.properties.NOMLOC) {
-        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2015:   ' + feature.properties.robbery2015_Total)
+        return layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2015:   ' + feature.properties.robbery2015_Total)
     }
 }
 function geojsonPopupRobos2016(feature, layer) {
     if (feature.properties.NOMLOC) {
-        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2016:   ' + feature.properties.robbery2016_Total)
+        return layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2016:   ' + feature.properties.robbery2016_Total)
     }
 }
 function geojsonPopupRobos2017(feature, layer) {
     if (feature.properties.NOMLOC) {
-        layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2017:   ' + feature.properties.robbery2017_Total)
+        return layer.bindPopup('Estado:   ' + feature.properties.NOMLOC + '<br>Robos en 2017:   ' + feature.properties.robbery2017_Total)
     }
 }
 
