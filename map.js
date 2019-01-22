@@ -213,7 +213,7 @@ var Robos2017Legend = L.control({ position: 'bottomright' });
 Homicidios2015Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 14, 58, 108, 245],
-        labels = ['Homicidios por municipio'],
+        labels = ['Homicidios por alcadía'],
         from, to;
     for (var i = 0; i < grades.length; i++) {
         from = grades[i];
@@ -228,7 +228,7 @@ Homicidios2015Legend.onAdd = function (mymap) {
 Homicidios2016Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 22, 66, 95, 238],
-        labels = ['Homicidios por municipio'],
+        labels = ['Homicidios por alcadía'],
         from, to;
     for (var i = 0; i < grades.length; i++) {
         from = grades[i];
@@ -243,7 +243,7 @@ Homicidios2016Legend.onAdd = function (mymap) {
 Homicidios2017Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 31, 72, 123, 192],
-        labels = ['Homicidios por municipio'],
+        labels = ['Homicidios por alcadía'],
         from, to;
     for (var i = 0; i < grades.length; i++) {
         from = grades[i];
@@ -258,7 +258,7 @@ Homicidios2017Legend.onAdd = function (mymap) {
 Robos2015Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 1435, 3001, 4726, 8783],
-        labels = ['Robos por municipio'],
+        labels = ['Robos por alcadía'],
         from, to;
     for (var i = 0; i < grades.length; i++) {
         from = grades[i];
@@ -273,7 +273,7 @@ Robos2015Legend.onAdd = function (mymap) {
 Robos2016Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 1423, 3305, 6032, 8303],
-        labels = ['Robos por municipio'],
+        labels = ['Robos por alcadía'],
         from, to;
     for (var i = 0; i < grades.length; i++) {
         from = grades[i];
@@ -288,7 +288,7 @@ Robos2016Legend.onAdd = function (mymap) {
 Robos2017Legend.onAdd = function (mymap) {
     var div = L.DomUtil.create('div', 'info legend'),
         grades = [0, 1026, 2726, 8097, 10447],
-        labels = ['Robos por municipio'],
+        labels = ['Robos por alcadía'],
         from, to;
     for (var i = 0; i < grades.length; i++) {
         from = grades[i];
